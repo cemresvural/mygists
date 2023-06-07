@@ -1,0 +1,28 @@
+#before: "hi my name is john"
+#after: "Hi mY NaMe iS JoHn"
+
+
+
+range(len("miuul"))
+range(0, 5)
+
+for i in range(len("miuul")):
+    print(i)
+
+
+
+def alternating(string):
+    new_string = ""
+    
+    #girilen stringin indexlerinde gez.
+for string_index in range(len(string)):
+#index çift ise büyük harfe çevir.
+    if string_index % 2 == 0:
+         new_string += string[string_index].upper()
+         #index tek ise küçük harfe çevir.
+    else:
+        new_string += string[string_index].lower()
+        print(new_string)
+        
+        
+        alternating("hi my name is john")
