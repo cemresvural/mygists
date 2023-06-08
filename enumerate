@@ -2,19 +2,17 @@
 #çift indexde yer alan öğrencileri bir listeye alınız.
 #tek indexde yer alan öğrencileri başka bir listeye alınız.
 #fakat bu iki liste tek bir liste olarak return olsun.
-  students = ["JOHN","MARIA","VENESSA","SEZEN"]
-  
-  
-  def divide_students(students):
-      groups = [[],[] ]
-      for index, students in enumerate(students):
-          if index % 2 == 0:
-             groups[0].append(student)
-           else:
-             groups[1].append(student)
-            
+students = ["JOHN","MARIA","VENESSA","SEZEN"]
+groups=[ [], [] ]  
+def divide_students(students):
+    for index, students in enumerate(students):
+        if index % 2 == 0:
+             groups[0].append(students)
+        else:
+             groups[1].append(students)
+    return(groups)           
 print(groups)
-return(groups)
+
 
 
 st= divide_students(students)
