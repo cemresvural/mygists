@@ -1,0 +1,31 @@
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+
+# Step 1: Import necessary libraries
+
+df = pd.read_csv('winequality-red.csv', delimiter=';')
+# Step 3: Separate the target variable 'quality' from the features
+X = df.drop('quality', axis=1) 
+y = df['quality'] 
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+
+# Step 5: Create an instance of the StandardScaler class
+sc= StandardScaler()
+
+# Step 6: Fit the StandardScaler on features from the training set
+sc.fit(X_train)
+
+# Step 7: Use the "fit_transform" method on the training dataset
+X_train= sc.fit_transform(X_train)
+
+# Step 8: Apply the "transform" method on the test dataset (DO NOT fit again!)
+X_test= sc.transform(X_test)
+
+# Step 9: Print the scaled training and test datasets
+print("Scaled Training Dataset:")
+print(X_train)
+print("\nScaled Test Dataset:")
+print(X_test)
+ 
