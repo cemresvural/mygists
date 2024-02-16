@@ -1,28 +1,26 @@
-import javax.swing.*;
-import java.awt.BorderLayout;
-import java.awt.event.*;
 
-public class Driver{
-	
-     public static void main(String[] args){
-	 JFrame frame = new JFrame();
-	 frame.setSize(800,600);
-	 frame.setLocationRelativeTo(null);
-	 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	 JPanel panel =new JPanel();
-	 JTextField textField =new JTextField(20);
-	 panel.add(textField);
-	 JButton button =new JButton();
-	 
-	 button.setText("Print Text");
-	 button.addActionListener(new ActionListener(){
-		 public void actionPerformed(ActionEvent event){
-			 System.out.println(textField.getText()); 
-		 }	 
-	 });
-	 
-	 panel.add(button);
-	 frame.add(panel,BorderLayout.CENTER);
-	 frame.setVisible(true);
-     }
+public class Driver {
+
+	 public static void main(String[] args) {
+		 byte b;//1 byte 
+		 b = 10;
+		 System.out.println(b);
+		 short s=20;//2 byte
+		 System.out.println(s);
+		 int i=30;//4 byte
+		 System.out.println(i);
+		 long l=40;//8 byte
+		 System.out.println(l);
+		 
+		 float pi=3.14f;//4 byte
+		 System.out.println(pi);
+		 
+		 double d =23.32233;//8 byte 
+		 System.out.println(d);
+		 char c = 'a';//2 byte
+		 System.out.println(c);
+		 
+		 boolean bool =true;//1 byte
+		 System.out.println(bool);
+	 }
 }
