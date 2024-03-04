@@ -19,7 +19,7 @@ public class metotT {
 //	int toplam=x+y;
 //	return toplam;
 //}
-	 public int topla(int x,int y) {
+	/* public int topla(int x,int y) {
 		int toplam=x+y;
 		return toplam;
 	 }
@@ -33,6 +33,29 @@ public static void main(String[] args) {
 	int y=scanner.nextInt();
 	int sonuc=MetotT.topla(x, y);
 	
-	System.out.println(sonuc);
-}
+	System.out.println(sonuc);*/
+	
+	//
+	public float topla(float x,float y) {
+		return x+y;
+	}
+	public float cikar(float x,float y) {
+		return x-y;
+	}
+	public float carp(float x,float y) {
+		return x*y;
+	}
+	public float bol(float x,float y) {
+		return x/y;
+	}
+	
+	public static void main(String[] args) {
+		metotT MetotT=new metotT();
+		float toplama= MetotT.topla(4.0f,6.0f);
+		System.out.println(toplama);
+		System.out.println(MetotT.cikar(6.0f,2.0f));
+		System.out.println(MetotT.carp(6.0f,2.0f));
+		System.out.println(MetotT.bol(6.0f,2.0f));
+	}
+	
 }
