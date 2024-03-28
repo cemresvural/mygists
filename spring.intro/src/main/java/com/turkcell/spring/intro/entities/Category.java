@@ -1,28 +1,26 @@
 package com.turkcell.spring.intro.entities;
 
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import lombok.Getter;
+import java.util.List;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name="products")
-public class Product {
+@Table(name="categories")
+public class Category {
     @Column(name="id")
     private int id;
     @Column(name="name")
     private String name;
-    @Column(name="unit_price")
-    private double unitPrice;
 
-
-    @ManyToOne
-    @JoinColumn(name="category_id")
-    private Category category;
+    @OneToMany(mappedBy = "category")
+    private List<Product> products;
 }

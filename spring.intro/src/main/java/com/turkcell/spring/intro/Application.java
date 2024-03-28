@@ -11,3 +11,4 @@ public class Application {
 	}
 
 }
+//ORM>Object Relation Mapping
