@@ -15,6 +15,8 @@ import lombok.Getter;
 @Table(name="products")
 public class Product {
     @Column(name="id")
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Column(name="name")
     private String name;
