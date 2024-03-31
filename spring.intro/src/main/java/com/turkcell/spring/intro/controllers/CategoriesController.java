@@ -6,9 +6,7 @@ import com.turkcell.spring.intro.repositories.CategoryRepository;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -24,6 +22,11 @@ public class CategoriesController {
     @GetMapping
     public List<Category>  getAll(){
         return  categoryRepository.findAll();
+    }
+
+    @PostMapping
+    public void add(@RequestBody Category category){
+        categoryRepository.save(category);
     }
 }
 
