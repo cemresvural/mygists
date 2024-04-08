@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import kodlama.io.rentACar.business.abstracts.BrandService;
+import kodlama.io.rentACar.business.responses.GetAllBrandsResponse;
 import kodlama.io.rentACar.entities.concretes.Brand;
 
 @RestController //annotation
@@ -21,7 +22,7 @@ public class BrandsController {
 		this.brandService = brandService;
 	}
 	@GetMapping("/getall")
-	public List<Brand> getAll(){
+	public List<GetAllBrandsResponse> getAll(){
 		return brandService.getAll();
 		}
 
