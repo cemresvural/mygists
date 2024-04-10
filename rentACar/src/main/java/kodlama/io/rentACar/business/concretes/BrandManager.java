@@ -1,9 +1,8 @@
 package kodlama.io.rentACar.business.concretes;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kodlama.io.rentACar.business.abstracts.BrandService;
@@ -24,14 +23,10 @@ public class BrandManager implements BrandService{
 	public List<GetAllBrandsResponse> getAll() {
 		
 		List<Brand> brands=brandRepository.findAll();
-		List<GetAllBrandsResponse> brandsResponse=new ArrayList<GetAllBrandsResponse>();
 		
-		for(Brand brand :brands) {
-			GetAllBrandsResponse responseItem=new GetAllBrandsResponse();
-			responseItem.setId(brand.getId());
-			responseItem.setName(brand.getName());
-			brandsResponse.add(responseItem);
-		}
+		List<GetAllBrandsResponse> brandsResponse=brands.stream()
+				.map(brand->this.modelMapperService.forResponse().map(brand, GetAllBrandsResponse.class)).collect(Collectors.toList());
+		
 		
 		return  brandsResponse;
 	}
