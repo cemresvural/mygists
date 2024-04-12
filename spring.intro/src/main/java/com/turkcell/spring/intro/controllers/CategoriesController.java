@@ -4,6 +4,7 @@ package com.turkcell.spring.intro.controllers;
 import com.turkcell.spring.intro.entities.Category;
 import com.turkcell.spring.intro.repositories.CategoryRepository;
 import com.turkcell.spring.intro.services.abstracts.CategoryService;
+import com.turkcell.spring.intro.services.dtos.CategoryForAddDto;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
@@ -29,8 +30,8 @@ public class CategoriesController {
     }
 
     @PostMapping
-    public void add(@RequestBody Category category){
-        categoryService.add(category);
+    public void add(CategoryForAddDto dto){
+        categoryService.add(dto);
     }
 }
 
