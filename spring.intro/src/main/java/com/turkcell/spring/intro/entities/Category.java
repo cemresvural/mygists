@@ -23,8 +23,7 @@ public class Category {
     private int id;
     @Column(name="name")
     private String name;
-//DTO
-    @JsonIgnore
+
     @OneToMany(mappedBy = "category")
     private List<Product> products;
 }

@@ -2,11 +2,8 @@ package com.turkcell.spring.intro.controllers;
 
 
 import com.turkcell.spring.intro.entities.Category;
-import com.turkcell.spring.intro.repositories.CategoryRepository;
 import com.turkcell.spring.intro.services.abstracts.CategoryService;
-import com.turkcell.spring.intro.services.dtos.CategoryForAddDto;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
+import com.turkcell.spring.intro.services.dtos.requests.AddCategoryRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -30,8 +27,13 @@ public class CategoriesController {
     }
 
     @PostMapping
-    public void add(CategoryForAddDto dto){
-        categoryService.add(dto);
+    public void add(@RequestBody AddCategoryRequest request){
+        categoryService.add(request);
+    }
+
+    @PutMapping
+    public void update(@RequestBody Category category){
+        categoryService.update(category);
     }
 }
 
