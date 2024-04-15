@@ -3,10 +3,9 @@ package com.turkcell.spring.intro.controllers;
 
 import com.turkcell.spring.intro.entities.Category;
 import com.turkcell.spring.intro.services.abstracts.CategoryService;
-import com.turkcell.spring.intro.services.dtos.requests.AddCategoryRequest;
-import com.turkcell.spring.intro.services.dtos.responses.AddCategoryResponse;
+import com.turkcell.spring.intro.services.dtos.requests.category.AddCategoryRequest;
+import com.turkcell.spring.intro.services.dtos.responses.category.AddCategoryResponse;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -39,6 +38,10 @@ public class CategoriesController {
        return ResponseEntity.created(location).body(response);
     }
 
+    @GetMapping("{id}")
+    public Category getDetails(@PathVariable int id){
+        return categoryService.getById(id);
+    }
     @PutMapping
     public void update(@RequestBody Category category){
         categoryService.update(category);

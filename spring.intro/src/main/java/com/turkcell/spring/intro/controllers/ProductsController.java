@@ -1,34 +1,21 @@
 package com.turkcell.spring.intro.controllers;
 
 import com.turkcell.spring.intro.entities.Product;
+import com.turkcell.spring.intro.services.abstracts.ProductService;
+import com.turkcell.spring.intro.services.dtos.requests.product.AddProductRequest;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/products")
+@RequiredArgsConstructor
 public class ProductsController {
-    //Params
-    //Query String
+    private final ProductService productService;
 
-    //http://localhost:8081/api/products?name=Cemre&surname=Vural  GET-Query String @RequestParam
-    //http://localhost:8081/api/products/cemre   @PathVariable
-    @GetMapping()
-    public String get(@RequestParam String name){
-        return "Merhaba"+ name;
-    }
 
-    @GetMapping("get2")
-    public String get2(){
-    return "Merhaba 2";
-    }
+
     @PostMapping
-    /*public String post(@RequestBody Product product){
-       return "Ürün id: "+product.getId() + "isim: "+product.getName() + "fiyat: "+product.getUnitPrice();
-    }*/
-    public Product post(@RequestBody Product product) {
-        return product;
+    public void add(@RequestBody AddProductRequest request){
+        productService.add(request);
     }
-
 }
-//header >side information
-//Accept Language
-//json convert to java class or java class convert to json,spring
