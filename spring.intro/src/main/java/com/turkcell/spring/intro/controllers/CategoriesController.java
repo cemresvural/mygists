@@ -5,6 +5,7 @@ import com.turkcell.spring.intro.entities.Category;
 import com.turkcell.spring.intro.services.abstracts.CategoryService;
 import com.turkcell.spring.intro.services.dtos.requests.category.AddCategoryRequest;
 import com.turkcell.spring.intro.services.dtos.responses.category.AddCategoryResponse;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -32,7 +33,7 @@ public class CategoriesController {
 
     @PostMapping
 
-    public ResponseEntity<AddCategoryResponse> add(@RequestBody AddCategoryRequest request){
+    public ResponseEntity<AddCategoryResponse> add(@RequestBody @Valid AddCategoryRequest request){
         AddCategoryResponse response= categoryService.add(request);
         URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(response.getId()).toUri();
        return ResponseEntity.created(location).body(response);
